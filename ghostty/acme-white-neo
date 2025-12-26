@@ -1,0 +1,30 @@
+# Acme White Neo - Light white theme inspired by the Acme editor from Plan 9
+# Port of the VS Code Acme Theme
+
+background = #ffffff
+foreground = #000000
+
+cursor-color = #000000
+cursor-style = block
+cursor-style-blink = false
+
+selection-background = #e8e8e8
+selection-foreground = #000000
+
+# 16-color palette (ANSI colors)
+palette = 0=#000000
+palette = 1=#bb5d5d
+palette = 2=#558855
+palette = 3=#99884c
+palette = 4=#4670bb
+palette = 5=#aa6688
+palette = 6=#5aaaaa
+palette = 7=#eeeeee
+palette = 8=#888888
+palette = 9=#dd8888
+palette = 10=#a8cca8
+palette = 11=#f8dfc8
+palette = 12=#afdbff
+palette = 13=#d08eaa
+palette = 14=#8ccccc
+palette = 15=#ffffff

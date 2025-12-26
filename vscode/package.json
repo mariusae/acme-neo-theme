@@ -1,0 +1,48 @@
+{
+  "name": "acme-theme-vscode-neo",
+  "displayName": "Acme Theme for VS Code",
+  "description": "Theme inspired by the Acme editor from Plan 9",
+  "version": "0.4.0",
+  "icon": "assets/glenda.jpg",
+  "publisher": "brendes",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariusae/acme-theme-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.59.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "acme",
+    "plan9",
+    "minimal"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Acme Neo",
+        "uiTheme": "vs",
+        "path": "./themes/acme-color-theme.json"
+      },
+      {
+        "label": "Acme White Neo",
+        "uiTheme": "vs",
+        "path": "./themes/acme-white-color-theme.json"
+      },
+      {
+        "label": "Dark Acme Neo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-acme-color-theme.json"
+      },
+      {
+        "label": "Dark Acme White Neo",
+        "uiTheme": "vs-dark",
+        "path": "./themes/dark-acme-white-color-theme.json"
+      }
+    ]
+  }
+}

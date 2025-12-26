@@ -1,0 +1,30 @@
+# Dark Acme Neo - Dark theme inspired by the Acme editor from Plan 9
+# Port of the VS Code Acme Theme
+
+background = #1a1612
+foreground = #d4c5a9
+
+cursor-color = #d4c5a9
+cursor-style = block
+cursor-style-blink = false
+
+selection-background = #3d3520
+selection-foreground = #d4c5a9
+
+# 16-color palette (ANSI colors)
+palette = 0=#000000
+palette = 1=#bb5d5d
+palette = 2=#558855
+palette = 3=#99884c
+palette = 4=#4670bb
+palette = 5=#aa6688
+palette = 6=#5aaaaa
+palette = 7=#2a2520
+palette = 8=#6a5f50
+palette = 9=#dd8888
+palette = 10=#a8cca8
+palette = 11=#eeee9e
+palette = 12=#afdbff
+palette = 13=#d08eaa
+palette = 14=#8ccccc
+palette = 15=#ffffff
