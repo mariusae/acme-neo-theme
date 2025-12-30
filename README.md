@@ -1,6 +1,6 @@
 # acme-neo-theme
 
-Theme inspired by the Acme editor from Plan 9, available for VS Code, Zed, and Ghostty terminal.
+Theme inspired by the Acme editor from Plan 9, available for VS Code, Zed, Ghostty terminal, and Fish shell.
 
 ## Building
 
@@ -24,6 +24,13 @@ python3 src/build.py
 
 ```bash
 cd ghostty
+python3 src/build.py
+```
+
+### Fish Shell Themes
+
+```bash
+cd fish
 python3 src/build.py
 ```
 

@@ -1,6 +1,6 @@
 # Acme Neo Theme
 
-Theme inspired by the Acme editor from Plan 9, available for VS Code, Zed, and Ghostty terminal.
+Theme inspired by the Acme editor from Plan 9, available for VS Code, Zed, Ghostty terminal, and Fish shell.
 
 ## Project Structure
 
@@ -22,10 +22,15 @@ This is a multi-platform theme project with a centralized configuration system:
 │   │   └── build.py       # Generate Zed theme (imports from vscode/src/config.py)
 │   └── acme-neo.json      # Generated Zed theme (single file with all variants)
 │
-└── ghostty/          # Ghostty terminal theme
+├── ghostty/          # Ghostty terminal theme
+│   ├── src/
+│   │   └── build.py       # Generate Ghostty themes (imports from vscode/src/config.py)
+│   └── *-neo             # Generated Ghostty theme files (4 files, no extension)
+│
+└── fish/             # Fish shell theme
     ├── src/
-    │   └── build.py       # Generate Ghostty themes (imports from vscode/src/config.py)
-    └── *-neo             # Generated Ghostty theme files (4 files, no extension)
+    │   └── build.py       # Generate Fish themes (imports from vscode/src/config.py)
+    └── *-neo.theme       # Generated Fish theme files (4 files with .theme extension)
 ```
 
 ## Source of Truth
@@ -87,6 +92,19 @@ python3 src/build.py
 - Output format: plain text config with `key = value` pairs
 - Output: `{theme-name}-neo` (e.g., `acme-neo`, `dark-acme-white-neo`)
 
+### Fish Shell Themes
+```bash
+cd fish
+python3 src/build.py
+```
+- Generates 4 separate theme files with `.theme` extension
+- Imports colors from `../../vscode/src/config.py`
+- No template file (generates directly from config)
+- Output format: fish shell theme format with `fish_color_*` variables
+- Output: `{theme-name}-neo.theme` (e.g., `acme-neo.theme`)
+- Defines colors for syntax highlighting, completion pager, and autosuggestions
+- Comments and autosuggestions use greyed out colors for lower contrast
+
 ## Build Script Architecture
 
 All build scripts follow a similar pattern:
@@ -116,6 +134,12 @@ All build scripts follow a similar pattern:
 - Generates 16-color ANSI palette
 - Includes cursor and selection colors
 - Output format: `key = value` pairs
+
+**Fish** (`fish/src/build.py`):
+- Direct config file generation (no template)
+- Defines colors for syntax highlighting and completion pager
+- All syntax elements use foreground color except comments (grey)
+- Output format: `fish_color_* colorvalue` pairs
 
 ## Color System
 
@@ -160,18 +184,27 @@ Each theme variant selects specific colors from this palette for:
 
 For Zed-specific adjustments, edit `prepare_theme_dict()` in `zed/src/build.py`
 For Ghostty-specific adjustments, edit `generate_ghostty_theme()` in `ghostty/src/build.py`
+For Fish-specific adjustments, edit `generate_fish_theme()` in `fish/src/build.py`
 
 ## Development Workflow
 
 1. Make changes to `vscode/src/config.py` (colors or theme definitions)
 2. Update `vscode/package.json` if changing theme labels
-3. Run all build scripts to regenerate themes
-4. Test in each platform (VS Code, Zed, Ghostty)
+3. Run all build scripts to regenerate themes:
+   ```bash
+   cd vscode && python3 src/build.py
+   cd ../zed && python3 src/build.py
+   cd ../ghostty && python3 src/build.py
+   cd ../fish && python3 src/build.py
+   ```
+4. Test in each platform (VS Code, Zed, Ghostty, Fish)
 5. Commit changes to both source files and generated themes
 
 ## Notes
 
-- Alpha channels in colors (e.g., `#rrggbbaa`) are preserved in VS Code but stripped for Zed/Ghostty
+- Alpha channels in colors (e.g., `#rrggbbaa`) are preserved in VS Code but stripped for Zed/Ghostty/Fish
 - Zed themes use a single JSON file with multiple variants under a `themes` array
 - Ghostty themes are individual config files without file extensions
+- Fish themes are individual config files with `.theme` extensions
 - The build scripts are idempotent - safe to run multiple times
+- Fish themes follow the minimal aesthetic: only comments and errors have distinct colors

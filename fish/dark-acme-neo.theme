@@ -1,0 +1,33 @@
+# Acme Neo Dark
+# Dark theme inspired by the Acme editor from Plan 9
+# Generated from VS Code Acme Theme configuration
+
+# Syntax Highlighting Colors
+fish_color_normal #d4c5a9
+fish_color_command #d4c5a9
+fish_color_keyword #d4c5a9
+fish_color_quote #d4c5a9
+fish_color_redirection #d4c5a9
+fish_color_end #d4c5a9
+fish_color_error #bb5d5d
+fish_color_param #d4c5a9
+fish_color_comment #6a5f50
+fish_color_selection --background=#3d3520
+fish_color_operator #d4c5a9
+fish_color_escape #d4c5a9
+fish_color_autosuggestion #6a5f50
+
+# Completion Pager Colors
+fish_pager_color_progress #6a5f50
+fish_pager_color_background
+fish_pager_color_prefix #d4c5a9
+fish_pager_color_completion #d4c5a9
+fish_pager_color_description #6a5f50
+fish_pager_color_selected_background --background=#2d4747
+fish_pager_color_selected_prefix #d4c5a9
+fish_pager_color_selected_completion #d4c5a9
+fish_pager_color_selected_description #d4c5a9
+fish_pager_color_secondary_background
+fish_pager_color_secondary_prefix #d4c5a9
+fish_pager_color_secondary_completion #d4c5a9
+fish_pager_color_secondary_description #6a5f50
