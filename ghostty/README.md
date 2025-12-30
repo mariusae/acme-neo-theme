@@ -84,6 +84,23 @@ theme = dark-acme-white-neo # Dark with cool tones
 - Foreground: Cool grey (#c8ccd4)
 - Modern dark theme with good contrast
 
+## Building
+
+These themes are automatically generated from the VS Code theme configuration to ensure consistency across all platforms.
+
+The theme files are built from:
+- **Color definitions**: `vscode/src/config.py` (source of truth for all colors)
+- **Theme metadata**: `vscode/package.json` (source of truth for theme names and variants)
+
+To rebuild the themes:
+
+```bash
+cd ghostty
+python3 src/build.py
+```
+
+This will regenerate all theme files in the `ghostty/` directory.
+
 ## About Acme
 
 The Acme editor from Plan 9 is known for its minimalist philosophy and excellent readability. These themes bring that same aesthetic to your terminal, with carefully selected colors that reduce visual clutter while maintaining clear distinction between different elements.

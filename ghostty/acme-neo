@@ -1,5 +1,5 @@
 # Acme Neo - Light theme inspired by the Acme editor from Plan 9
-# Port of the VS Code Acme Theme
+# Generated from VS Code Acme Theme configuration
 
 background = #ffffea
 foreground = #000000

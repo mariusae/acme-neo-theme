@@ -1,5 +1,5 @@
-# Dark Acme Neo - Dark theme inspired by the Acme editor from Plan 9
-# Port of the VS Code Acme Theme
+# Acme Neo Dark - Dark theme inspired by the Acme editor from Plan 9
+# Generated from VS Code Acme Theme configuration
 
 background = #1a1612
 foreground = #d4c5a9
