@@ -100,8 +100,8 @@ def prepare_theme_dict(theme_dict):
         "match_focus_bg": strip_alpha(theme_dict.get("match_focus_bg")),
         "selection_bg": strip_alpha(theme_dict.get("selection_bg")),
 
-        # Borders
-        "border": strip_alpha(theme_dict.get("border_1", colors["border_1"])),
+        # Borders - use subtle bg_3 for dark themes, border_1 for light themes
+        "border": strip_alpha(theme_dict.get("bg_3")) if is_dark else strip_alpha(theme_dict.get("border_1", colors["border_1"])),
         "border_focused": strip_alpha(theme_dict.get("blue_1", colors["blue_1"])),
         "border_transparent": add_alpha(bg_1, "00"),
 
