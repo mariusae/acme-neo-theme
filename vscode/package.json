@@ -4,11 +4,11 @@
   "description": "Theme inspired by the Acme editor from Plan 9",
   "version": "0.4.0",
   "icon": "assets/glenda.jpg",
-  "publisher": "brendes",
+  "publisher": "mariusae",
   "type": "module",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mariusae/acme-theme-vscode.git"
+    "url": "https://github.com/mariusae/acme-neo-theme.git"
   },
   "engines": {
     "vscode": "^1.59.0"
@@ -29,17 +29,17 @@
         "path": "./themes/acme-color-theme.json"
       },
       {
-        "label": "Acme White Neo",
+        "label": "Acme Neo White",
         "uiTheme": "vs",
         "path": "./themes/acme-white-color-theme.json"
       },
       {
-        "label": "Dark Acme Neo",
+        "label": "Acme Neo Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-acme-color-theme.json"
       },
       {
-        "label": "Dark Acme White Neo",
+        "label": "Acme Neo Dark Black",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-acme-white-color-theme.json"
       }
