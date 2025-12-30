@@ -14,39 +14,6 @@
             "settings": {
                 "foreground": "{fg_dim}"
             }
-        },
-        {
-            "name": "No highlighting",
-            "scope": [
-                "constant",
-                "constant.character.escape",
-                "entity.other.attribute-name.id",
-                "support.constant",
-                "string"
-            ],
-            "settings": {
-                "foreground": "{fg}"
-            }
-        },
-        {
-            "name": "Errors",
-            "scope": [
-                "entity.name.exception",
-                "invalid.illegal"
-            ],
-            "settings": {
-                "foreground": "{red_1}"
-            }
-        },
-        {
-            "name": "Sections and headings",
-            "scope": [
-                "entity.name.section.markdown"
-            ],
-            "settings": {
-                "foreground": "{fg}",
-                "fontStyle": "bold"
-            }
         }
     ],
     "colors": {

@@ -119,7 +119,7 @@
             "color": "{fg}"
           },
           "hint": {
-            "color": "{blue_1}",
+            "color": "{fg}",
             "font_style": "italic"
           },
           "keyword": {
@@ -129,10 +129,10 @@
             "color": "{fg}"
           },
           "link_text": {
-            "color": "{blue_1}"
+            "color": "{fg}"
           },
           "link_uri": {
-            "color": "{blue_1}"
+            "color": "{fg}"
           },
           "number": {
             "color": "{fg}"
@@ -169,25 +169,25 @@
             "color": "{fg}"
           },
           "string": {
-            "color": "{green_1}"
+            "color": "{fg}"
           },
           "string.escape": {
-            "color": "{green_1}"
+            "color": "{fg}"
           },
           "string.regex": {
-            "color": "{magenta_1}"
+            "color": "{fg}"
           },
           "string.special": {
-            "color": "{green_1}"
+            "color": "{fg}"
           },
           "string.special.symbol": {
-            "color": "{green_1}"
+            "color": "{fg}"
           },
           "tag": {
             "color": "{fg}"
           },
           "text.literal": {
-            "color": "{green_1}"
+            "color": "{fg}"
           },
           "title": {
             "color": "{fg}",
