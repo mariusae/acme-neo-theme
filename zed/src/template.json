@@ -16,7 +16,7 @@
         "border.disabled": "{border}",
         "surface.background": "{ui_bg}",
         "background": "{bg_1}",
-        "element.background": "{bg_2}",
+        "element.background": "{bg_1}",
         "element.hover": "{bg_3}",
         "element.selected": "{ui_hl}",
         "ghost_element.hover": "{bg_3}",

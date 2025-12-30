@@ -32,7 +32,7 @@ colors = {
     "purple_2": "#bbbbff",
     "magenta_1": "#aa6688",
     "magenta_2": "#d08eaa",
-    "border_1": "#00000058",
+    "border_1": "#00000015",
     "border_2": "#000000cc",
     "invisible": "#00000000",
     # Warm dark backgrounds
@@ -99,7 +99,7 @@ dark_acme_base = {
     "badge_fg": colors["warmbeige_2"],
     "button_bg": colors["purple_muted"],
     "button_fg": colors["warmbeige_2"],
-    "border_1": colors["warmbeige_1"] + "58",
+    "border_1": colors["warmbeige_1"] + "20",
     "border_2": colors["warmbeige_1"] + "cc",
 }
 
@@ -117,7 +117,7 @@ dark_white_base = {
     "badge_fg": colors["coolgray_2"],
     "button_bg": colors["blue_muted"],
     "button_fg": colors["coolgray_2"],
-    "border_1": colors["coolgray_1"] + "58",
+    "border_1": colors["coolgray_1"] + "20",
     "border_2": colors["coolgray_1"] + "cc",
 }
 

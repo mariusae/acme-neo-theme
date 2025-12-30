@@ -74,6 +74,31 @@ def lighten_color(hex_color, amount=0.1):
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
+def blend_color_with_alpha(hex_color, bg_color):
+    """Blend a color with alpha channel onto a background color."""
+    if len(hex_color) <= 7:
+        return strip_alpha(hex_color)
+
+    # Extract RGBA from foreground
+    fg_r = int(hex_color[1:3], 16)
+    fg_g = int(hex_color[3:5], 16)
+    fg_b = int(hex_color[5:7], 16)
+    alpha = int(hex_color[7:9], 16) / 255.0
+
+    # Extract RGB from background
+    bg_color = strip_alpha(bg_color)
+    bg_r = int(bg_color[1:3], 16)
+    bg_g = int(bg_color[3:5], 16)
+    bg_b = int(bg_color[5:7], 16)
+
+    # Blend
+    r = int(fg_r * alpha + bg_r * (1 - alpha))
+    g = int(fg_g * alpha + bg_g * (1 - alpha))
+    b = int(fg_b * alpha + bg_b * (1 - alpha))
+
+    return f"#{r:02x}{g:02x}{b:02x}"
+
+
 def prepare_theme_dict(theme_dict):
     """Prepare a theme dictionary with all required Zed colors."""
     is_dark = theme_dict.get("type") == "dark"
@@ -96,12 +121,18 @@ def prepare_theme_dict(theme_dict):
         "ui_hl": strip_alpha(theme_dict.get("ui_hl")),
         "fg": fg,
         "gray": strip_alpha(theme_dict.get("gray")),
-        "match_bg": strip_alpha(theme_dict.get("match_bg")),
-        "match_focus_bg": strip_alpha(theme_dict.get("match_focus_bg")),
-        "selection_bg": strip_alpha(theme_dict.get("selection_bg")),
 
-        # Borders - use subtle bg_3 for dark themes, border_1 for light themes
-        "border": strip_alpha(theme_dict.get("bg_3")) if is_dark else strip_alpha(theme_dict.get("border_1", colors["border_1"])),
+        # Blend colors with alpha channels on appropriate backgrounds
+        "match_bg": blend_color_with_alpha(theme_dict.get("match_bg"), bg_1),
+        "match_focus_bg": blend_color_with_alpha(theme_dict.get("match_focus_bg"), bg_1),
+        "selection_bg": blend_color_with_alpha(theme_dict.get("selection_bg"), bg_1),
+        "fg_dim": blend_color_with_alpha(theme_dict.get("fg_dim"), bg_1),
+        "fg_faint": blend_color_with_alpha(theme_dict.get("fg_faint"), bg_1),
+        "fg_ghost": blend_color_with_alpha(theme_dict.get("fg_ghost"), bg_1),
+        "neutral_hl": blend_color_with_alpha(theme_dict.get("neutral_hl"), bg_1),
+
+        # Borders - use subtle bg_2 for dark themes, blend border_1 with bg for light themes
+        "border": strip_alpha(theme_dict.get("bg_2")) if is_dark else blend_color_with_alpha(theme_dict.get("border_1", colors["border_1"]), bg_1),
         "border_focused": strip_alpha(theme_dict.get("blue_1", colors["blue_1"])),
         "border_transparent": add_alpha(bg_1, "00"),
 
