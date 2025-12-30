@@ -104,8 +104,8 @@ def prepare_theme_dict(theme_dict):
     is_dark = theme_dict.get("type") == "dark"
 
     # Base colors
-    bg_1 = strip_alpha(theme_dict.get("bg_1"))
-    fg = strip_alpha(theme_dict.get("fg"))
+    bg_1 = theme_dict.get("bg_1")
+    fg = theme_dict.get("fg")
 
     # Prepare the extended dictionary with all needed colors
     zed_dict = {
@@ -113,54 +113,52 @@ def prepare_theme_dict(theme_dict):
         # Appearance
         "appearance": "dark" if is_dark else "light",
 
-        # Strip alpha from base colors
+        # Keep all colors as-is (Zed supports alpha channels)
         "bg_1": bg_1,
-        "bg_2": strip_alpha(theme_dict.get("bg_2")),
-        "bg_3": strip_alpha(theme_dict.get("bg_3")),
-        "ui_bg": strip_alpha(theme_dict.get("ui_bg")),
-        "ui_hl": strip_alpha(theme_dict.get("ui_hl")),
+        "bg_2": theme_dict.get("bg_2"),
+        "bg_3": theme_dict.get("bg_3"),
+        "ui_bg": theme_dict.get("ui_bg"),
+        "ui_hl": theme_dict.get("ui_hl"),
         "fg": fg,
-        "gray": strip_alpha(theme_dict.get("gray")),
+        "gray": theme_dict.get("gray"),
+        "match_bg": theme_dict.get("match_bg"),
+        "match_focus_bg": theme_dict.get("match_focus_bg"),
+        "selection_bg": theme_dict.get("selection_bg"),
+        "fg_dim": theme_dict.get("fg_dim"),
+        "fg_faint": theme_dict.get("fg_faint"),
+        "fg_ghost": theme_dict.get("fg_ghost"),
+        "neutral_hl": theme_dict.get("neutral_hl"),
 
-        # Blend colors with alpha channels on appropriate backgrounds
-        "match_bg": blend_color_with_alpha(theme_dict.get("match_bg"), bg_1),
-        "match_focus_bg": blend_color_with_alpha(theme_dict.get("match_focus_bg"), bg_1),
-        "selection_bg": blend_color_with_alpha(theme_dict.get("selection_bg"), bg_1),
-        "fg_dim": blend_color_with_alpha(theme_dict.get("fg_dim"), bg_1),
-        "fg_faint": blend_color_with_alpha(theme_dict.get("fg_faint"), bg_1),
-        "fg_ghost": blend_color_with_alpha(theme_dict.get("fg_ghost"), bg_1),
-        "neutral_hl": blend_color_with_alpha(theme_dict.get("neutral_hl"), bg_1),
-
-        # Borders - use subtle bg_2 for dark themes, blend border_1 with bg for light themes
-        "border": strip_alpha(theme_dict.get("bg_2")) if is_dark else blend_color_with_alpha(theme_dict.get("border_1", colors["border_1"]), bg_1),
-        "border_focused": strip_alpha(theme_dict.get("blue_1", colors["blue_1"])),
-        "border_transparent": add_alpha(bg_1, "00"),
+        # Borders - use bg_2 for dark themes, border_1 for light themes
+        "border": theme_dict.get("bg_2") if is_dark else theme_dict.get("border_1", colors["border_1"]),
+        "border_focused": theme_dict.get("blue_1", colors["blue_1"]),
+        "border_transparent": colors["invisible"],
 
         # Scrollbar colors
-        "scrollbar_thumb": strip_alpha(theme_dict.get("gray")),
+        "scrollbar_thumb": theme_dict.get("gray"),
         "scrollbar_hover": lighten_color(theme_dict.get("gray")) if is_dark else darken_color(theme_dict.get("gray")),
         "scrollbar_active": lighten_color(theme_dict.get("gray"), 0.2) if is_dark else darken_color(theme_dict.get("gray"), 0.2),
 
         # ANSI colors
         "ansi_black": colors["black"],
-        "ansi_bright_black": strip_alpha(theme_dict.get("gray")),
-        "ansi_white": strip_alpha(theme_dict.get("bg_3")),
+        "ansi_bright_black": theme_dict.get("gray"),
+        "ansi_white": theme_dict.get("bg_3"),
         "ansi_bright_white": colors["white"],
 
-        # Standard colors (stripped of alpha)
-        "red_1": strip_alpha(colors["red_1"]),
-        "red_2": strip_alpha(colors["red_2"]),
-        "green_1": strip_alpha(colors["green_1"]),
-        "green_2": strip_alpha(colors["green_2"]),
-        "yellow_1": strip_alpha(colors["yellow_1"]),
-        "yellow_2": strip_alpha(colors["yellow_2"]),
-        "blue_1": strip_alpha(colors["blue_1"]),
-        "blue_2": strip_alpha(colors["blue_2"]),
-        "cyan_1": strip_alpha(colors["cyan_1"]),
-        "cyan_2": strip_alpha(colors["cyan_2"]),
-        "magenta_1": strip_alpha(colors["magenta_1"]),
-        "magenta_2": strip_alpha(colors["magenta_2"]),
-        "orange_1": strip_alpha(colors["orange_1"]),
+        # Standard colors
+        "red_1": colors["red_1"],
+        "red_2": colors["red_2"],
+        "green_1": colors["green_1"],
+        "green_2": colors["green_2"],
+        "yellow_1": colors["yellow_1"],
+        "yellow_2": colors["yellow_2"],
+        "blue_1": colors["blue_1"],
+        "blue_2": colors["blue_2"],
+        "cyan_1": colors["cyan_1"],
+        "cyan_2": colors["cyan_2"],
+        "magenta_1": colors["magenta_1"],
+        "magenta_2": colors["magenta_2"],
+        "orange_1": colors["orange_1"],
     }
 
     return zed_dict

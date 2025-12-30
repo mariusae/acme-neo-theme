@@ -79,7 +79,7 @@ python3 src/build.py
 - Imports colors from `../../vscode/src/config.py`
 - Uses `template.json` with recursive string formatting
 - Includes special handling for borders, scrollbars, and ANSI colors
-- Strips alpha channels where needed (Zed doesn't support alpha in some places)
+- Preserves alpha channels (Zed supports transparency)
 
 ### Ghostty Themes
 ```bash
@@ -117,7 +117,7 @@ All build scripts follow a similar pattern:
 ### Key Functions
 
 - `theme_filename(name)`: Convert theme name to filename format (kebab-case)
-- `strip_alpha(color)`: Remove alpha channel from hex colors (for Zed/Ghostty)
+- `strip_alpha(color)`: Remove alpha channel from hex colors (for Ghostty/Fish)
 - `get_theme_label(package_json_path, theme_name)`: Extract display label from package.json
 - `recursive_format(value)`: Recursively apply theme colors to template (VS Code, Zed)
 
@@ -126,8 +126,8 @@ All build scripts follow a similar pattern:
 **Zed** (`zed/src/build.py`):
 - `darken_color()` / `lighten_color()`: Adjust colors for hover/active states
 - `prepare_theme_dict()`: Adds computed colors for borders, scrollbars, ANSI palette
-- Strips alpha channels from all colors
-- Uses `bg_3` for dark borders, `border_1` for light borders
+- Preserves alpha channels (Zed supports transparency)
+- Uses `bg_2` for dark borders, `border_1` for light borders
 
 **Ghostty** (`ghostty/src/build.py`):
 - Direct config file generation (no template)
@@ -202,7 +202,7 @@ For Fish-specific adjustments, edit `generate_fish_theme()` in `fish/src/build.p
 
 ## Notes
 
-- Alpha channels in colors (e.g., `#rrggbbaa`) are preserved in VS Code but stripped for Zed/Ghostty/Fish
+- Alpha channels in colors (e.g., `#rrggbbaa`) are preserved in VS Code and Zed but stripped for Ghostty/Fish
 - Zed themes use a single JSON file with multiple variants under a `themes` array
 - Ghostty themes are individual config files without file extensions
 - Fish themes are individual config files with `.theme` extensions
