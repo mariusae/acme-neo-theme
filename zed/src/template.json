@@ -1,0 +1,213 @@
+{
+  "name": "Acme Neo",
+  "author": "mariusae",
+  "themes": [
+    {
+      "name": "{label}",
+      "appearance": "{appearance}",
+      "style": {
+        "background.appearance": "opaque",
+        "accents": [],
+        "border": "{border}",
+        "border.variant": "{border}",
+        "border.focused": "{border_focused}",
+        "border.selected": "{border_focused}",
+        "border.transparent": "{border_transparent}",
+        "border.disabled": "{border}",
+        "surface.background": "{ui_bg}",
+        "background": "{bg_1}",
+        "element.background": "{bg_2}",
+        "element.hover": "{bg_3}",
+        "element.selected": "{ui_hl}",
+        "ghost_element.hover": "{bg_3}",
+        "ghost_element.selected": "{ui_hl}",
+        "text": "{fg}",
+        "text.muted": "{gray}",
+        "status_bar.background": "{ui_bg}",
+        "title_bar.background": "{ui_bg}",
+        "toolbar.background": "{ui_bg}",
+        "tab_bar.background": "{ui_bg}",
+        "tab.inactive_background": "{ui_bg}",
+        "tab.active_background": "{bg_1}",
+        "search.match_background": "{match_bg}",
+        "panel.background": "{ui_bg}",
+        "pane_group.border": "{border}",
+        "scrollbar.thumb.background": "{scrollbar_thumb}",
+        "scrollbar.thumb.hover_background": "{scrollbar_hover}",
+        "scrollbar.thumb.active_background": "{scrollbar_active}",
+        "scrollbar.thumb.border": "{scrollbar_thumb}",
+        "scrollbar.track.background": "{bg_1}",
+        "editor.foreground": "{fg}",
+        "editor.background": "{bg_1}",
+        "editor.gutter.background": "{bg_1}",
+        "editor.line_number": "{gray}",
+        "editor.active_line_number": "{fg}",
+        "editor.wrap_guide": "{bg_2}",
+        "editor.active_wrap_guide": "{bg_3}",
+        "editor.active_line.background": "{selection_bg}",
+        "editor.highlighted_line.background": "{selection_bg}",
+        "editor.document_highlight.read_background": "{match_bg}",
+        "editor.document_highlight.write_background": "{match_focus_bg}",
+        "editor.document_highlight.bracket_background": "{ui_hl}",
+        "terminal.background": "{bg_1}",
+        "terminal.foreground": "{fg}",
+        "terminal.ansi.black": "{ansi_black}",
+        "terminal.ansi.bright_black": "{ansi_bright_black}",
+        "terminal.ansi.red": "{red_1}",
+        "terminal.ansi.bright_red": "{red_2}",
+        "terminal.ansi.green": "{green_1}",
+        "terminal.ansi.bright_green": "{green_2}",
+        "terminal.ansi.yellow": "{yellow_1}",
+        "terminal.ansi.bright_yellow": "{yellow_2}",
+        "terminal.ansi.blue": "{blue_1}",
+        "terminal.ansi.bright_blue": "{blue_2}",
+        "terminal.ansi.magenta": "{magenta_1}",
+        "terminal.ansi.bright_magenta": "{magenta_2}",
+        "terminal.ansi.cyan": "{cyan_1}",
+        "terminal.ansi.bright_cyan": "{cyan_2}",
+        "terminal.ansi.white": "{ansi_white}",
+        "terminal.ansi.bright_white": "{ansi_bright_white}",
+        "link_text.hover": "{blue_1}",
+        "conflict": "{red_1}",
+        "created": "{green_1}",
+        "deleted": "{red_1}",
+        "hidden": "{gray}",
+        "hint": "{gray}",
+        "ignored": "{gray}",
+        "info": "{blue_1}",
+        "modified": "{yellow_1}",
+        "predictive": "{gray}",
+        "renamed": "{blue_1}",
+        "success": "{green_1}",
+        "unreachable": "{gray}",
+        "warning": "{orange_1}",
+        "players": [],
+        "syntax": {
+          "attribute": {
+            "color": "{fg}"
+          },
+          "boolean": {
+            "color": "{fg}"
+          },
+          "comment": {
+            "color": "{gray}"
+          },
+          "comment.doc": {
+            "color": "{gray}"
+          },
+          "constant": {
+            "color": "{fg}"
+          },
+          "constructor": {
+            "color": "{fg}"
+          },
+          "embedded": {
+            "color": "{fg}"
+          },
+          "emphasis": {
+            "color": "{fg}",
+            "font_style": "italic"
+          },
+          "emphasis.strong": {
+            "color": "{fg}",
+            "font_weight": 700
+          },
+          "enum": {
+            "color": "{fg}"
+          },
+          "function": {
+            "color": "{fg}"
+          },
+          "hint": {
+            "color": "{blue_1}",
+            "font_style": "italic"
+          },
+          "keyword": {
+            "color": "{fg}"
+          },
+          "label": {
+            "color": "{fg}"
+          },
+          "link_text": {
+            "color": "{blue_1}"
+          },
+          "link_uri": {
+            "color": "{blue_1}"
+          },
+          "number": {
+            "color": "{fg}"
+          },
+          "operator": {
+            "color": "{fg}"
+          },
+          "predictive": {
+            "color": "{gray}",
+            "font_style": "italic"
+          },
+          "preproc": {
+            "color": "{fg}"
+          },
+          "primary": {
+            "color": "{fg}"
+          },
+          "property": {
+            "color": "{fg}"
+          },
+          "punctuation": {
+            "color": "{fg}"
+          },
+          "punctuation.bracket": {
+            "color": "{fg}"
+          },
+          "punctuation.delimiter": {
+            "color": "{fg}"
+          },
+          "punctuation.list_marker": {
+            "color": "{fg}"
+          },
+          "punctuation.special": {
+            "color": "{fg}"
+          },
+          "string": {
+            "color": "{green_1}"
+          },
+          "string.escape": {
+            "color": "{green_1}"
+          },
+          "string.regex": {
+            "color": "{magenta_1}"
+          },
+          "string.special": {
+            "color": "{green_1}"
+          },
+          "string.special.symbol": {
+            "color": "{green_1}"
+          },
+          "tag": {
+            "color": "{fg}"
+          },
+          "text.literal": {
+            "color": "{green_1}"
+          },
+          "title": {
+            "color": "{fg}",
+            "font_weight": 700
+          },
+          "type": {
+            "color": "{fg}"
+          },
+          "variable": {
+            "color": "{fg}"
+          },
+          "variable.special": {
+            "color": "{fg}"
+          },
+          "variant": {
+            "color": "{fg}"
+          }
+        }
+      }
+    }
+  ],
+  "$schema": "https://zed.dev/schema/themes/v0.2.0.json"
+}
