@@ -39,7 +39,7 @@ def get_theme_label(package_json_path, theme_name):
     return theme_name
 
 
-def generate_fish_theme(theme_dict, output_file, label):
+def generate_fish_theme(theme_dict, output_file, label, universal=False):
     """Generate a fish theme file from a theme dictionary."""
 
     # Get base colors
@@ -50,10 +50,21 @@ def generate_fish_theme(theme_dict, output_file, label):
     # For comments, use gray (same as Zed, since Fish doesn't support alpha transparency)
     comment_color = gray
 
+    # For universal theme, use medium-contrast colors that work on both light and dark backgrounds
+    if universal:
+        # Use blue_muted - balanced luminance for visibility on both light and dark terminals
+        selection_bg = strip_alpha(colors["blue_muted"])  # Medium blue-gray
+        selected_item_bg = strip_alpha(colors["blue_muted"])  # Same for consistency
+        selected_fg = colors["white"]  # White text on dark backgrounds
+    else:
+        selection_bg = strip_alpha(theme_dict.get("selection_bg"))
+        selected_item_bg = strip_alpha(theme_dict.get("ui_hl"))
+        selected_fg = fg
+
     # Build the theme file content
     lines = [
         f"# {label}",
-        f"# {'Dark' if theme_dict.get('type') == 'dark' else 'Light'} theme inspired by the Acme editor from Plan 9",
+        f"# {'Universal' if universal else 'Dark' if theme_dict.get('type') == 'dark' else 'Light'} theme inspired by the Acme editor from Plan 9",
         "# Generated from VS Code Acme Theme configuration",
         "",
         "# Syntax Highlighting Colors",
@@ -66,7 +77,7 @@ def generate_fish_theme(theme_dict, output_file, label):
         f"fish_color_error {strip_alpha(colors['red_1'])}",
         f"fish_color_param {fg}",
         f"fish_color_comment {comment_color}",
-        f"fish_color_selection --background={strip_alpha(theme_dict.get('selection_bg'))}",
+        f"fish_color_selection --background={selection_bg}",
         f"fish_color_operator {fg}",
         f"fish_color_escape {fg}",
         f"fish_color_autosuggestion {gray}",
@@ -77,10 +88,10 @@ def generate_fish_theme(theme_dict, output_file, label):
         f"fish_pager_color_prefix {fg}",
         f"fish_pager_color_completion {fg}",
         f"fish_pager_color_description {gray}",
-        f"fish_pager_color_selected_background --background={strip_alpha(theme_dict.get('ui_hl'))}",
-        f"fish_pager_color_selected_prefix {fg}",
-        f"fish_pager_color_selected_completion {fg}",
-        f"fish_pager_color_selected_description {fg}",
+        f"fish_pager_color_selected_background --background={selected_item_bg}",
+        f"fish_pager_color_selected_prefix {selected_fg}",
+        f"fish_pager_color_selected_completion {selected_fg}",
+        f"fish_pager_color_selected_description {selected_fg}",
         f"fish_pager_color_secondary_background",
         f"fish_pager_color_secondary_prefix {fg}",
         f"fish_pager_color_secondary_completion {fg}",
@@ -109,6 +120,12 @@ def main():
 
         generate_fish_theme(theme_dict, output_path, label)
         print(f"Generated: {output_name}")
+
+    # Generate universal theme based on the first light theme (Acme)
+    light_theme = themes[0]  # Acme theme
+    universal_output_path = os.path.join(output_dir, "acme-universal-neo.theme")
+    generate_fish_theme(light_theme, universal_output_path, "Acme Neo Universal", universal=True)
+    print(f"Generated: acme-universal-neo.theme")
 
 
 if __name__ == "__main__":

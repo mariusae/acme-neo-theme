@@ -1,0 +1,33 @@
+# Acme Neo Universal
+# Universal theme inspired by the Acme editor from Plan 9
+# Generated from VS Code Acme Theme configuration
+
+# Syntax Highlighting Colors
+fish_color_normal #000000
+fish_color_command #000000
+fish_color_keyword #000000
+fish_color_quote #000000
+fish_color_redirection #000000
+fish_color_end #000000
+fish_color_error #bb5d5d
+fish_color_param #000000
+fish_color_comment #777770
+fish_color_selection --background=#5a7aa0
+fish_color_operator #000000
+fish_color_escape #000000
+fish_color_autosuggestion #777770
+
+# Completion Pager Colors
+fish_pager_color_progress #777770
+fish_pager_color_background
+fish_pager_color_prefix #000000
+fish_pager_color_completion #000000
+fish_pager_color_description #777770
+fish_pager_color_selected_background --background=#5a7aa0
+fish_pager_color_selected_prefix #ffffff
+fish_pager_color_selected_completion #ffffff
+fish_pager_color_selected_description #ffffff
+fish_pager_color_secondary_background
+fish_pager_color_secondary_prefix #000000
+fish_pager_color_secondary_completion #000000
+fish_pager_color_secondary_description #777770
