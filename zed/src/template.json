@@ -75,6 +75,8 @@
         "deleted": "{red_1}",
         "hidden": "{gray}",
         "hint": "{gray}",
+        "hint.background": "{hint_bg}",
+        "hint.foreground": "{gray}",
         "ignored": "{gray}",
         "info": "{blue_1}",
         "modified": "{yellow_1}",

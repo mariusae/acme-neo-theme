@@ -134,6 +134,9 @@ def prepare_theme_dict(theme_dict):
         "border_focused": theme_dict.get("blue_1", colors["blue_1"]),
         "border_transparent": colors["invisible"],
 
+        # Hints - use bg_3 for dark themes for more contrast, bg_2 for light themes
+        "hint_bg": theme_dict.get("bg_3") if is_dark else theme_dict.get("bg_2"),
+
         # Scrollbar colors
         "scrollbar_thumb": theme_dict.get("gray"),
         "scrollbar_hover": lighten_color(theme_dict.get("gray")) if is_dark else darken_color(theme_dict.get("gray")),
